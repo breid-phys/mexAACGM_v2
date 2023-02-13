@@ -61,17 +61,6 @@ double subsolar(int yr, int mo, int dy, int hr, int mt, int sc) {
 
         return mlon;
 }
-/*
- * xtimesy.c
- * Multiplies a real input matrix y by a given real input scalar x.
- *
- * The calling syntax is:
- *
- *		[result] = xtimesy(x, y)
- *
- * This is a MEX-file for MATLAB.
- * Copyright 1984-2018 The MathWorks, Inc.
- */
 
 /* the gateway function */
 void mexFunction(int nlhs, mxArray* plhs[], int nrhs, const mxArray* prhs[]) {
@@ -95,7 +84,7 @@ void mexFunction(int nlhs, mxArray* plhs[], int nrhs, const mxArray* prhs[]) {
     double mlon_ref;
     double rtp[3];
     double mlat,mlon,r;
-    int k, err, npts;
+    int k, err, npts, i;
     double dd,jd,eqt,dec,ut,at;
 
     
@@ -210,7 +199,7 @@ void mexFunction(int nlhs, mxArray* plhs[], int nrhs, const mxArray* prhs[]) {
     prev_mt = -1;
     prev_sc = -1;
     
-    for (int i=0; i<ncols; i++) {
+    for (i=0; i<ncols; i++) {
         
         yr = (int)*(datevec + i*6);
         mo = (int)*(datevec + i*6 + 1);
